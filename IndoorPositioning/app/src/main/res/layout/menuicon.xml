@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_menuicon"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/menuicon_margin"
+            android:layout_marginLeft="@dimen/menuicon_margin"
+            android:layout_marginRight="@dimen/menuicon_margin"
+            android:src="@drawable/register"
+            />
+        <TextView
+            android:id="@+id/txt_menutitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:textColor="#6f6f6f"
+            android:textStyle="bold"
+            android:text="Registration"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

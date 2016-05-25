@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Indoor Positioning</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="registration">Registration</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="fname">First name</string>
+    <string name="lname">Last name</string>
+    <string name="reg_success">Registration successful!</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="map">Map</string>
+    <string name="positioning">Positioning</string>
+    <string name="loggedin_as">Logged in as:</string>
+    <string name="logging_in">Logging in...</string>
+    <string name="star">*</string>
+    <string name="required">Fields with * are required!</string>
+    <string name="savecreds">Save credentials</string>
+    <string name="reg_in_progress">Registering new user...</string>
+
+
+
+</resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="thesis.jager.indoorpositioning"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/positioning"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".UserHandlerActivity">
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".RegistrationActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".MapActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
+        </activity>
+        <activity
+            android:name=".PositioningActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
+        </activity>
+
+        <service
+            android:name=".discovery.BluetoothDiscoveryService"
+            android:enabled="true"
+            android:exported="false">
+        </service>
+
+    </application>
+
+</manifest>
