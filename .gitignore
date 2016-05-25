@@ -1,3 +1,6 @@
+.gitignore
+.gitattributes
+
 # Built application files
 *.apk
 *.ap_
