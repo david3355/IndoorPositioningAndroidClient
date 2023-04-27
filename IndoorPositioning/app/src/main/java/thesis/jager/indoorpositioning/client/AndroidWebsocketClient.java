@@ -1,13 +1,12 @@
 package thesis.jager.indoorpositioning.client;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_17;
 import org.java_websocket.handshake.ServerHandshake;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import thesis.jager.indoorpositioning.client.eventhandling.WebsocketServerEventCallback;
 

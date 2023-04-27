@@ -3,7 +3,7 @@ package thesis.jager.indoorpositioning;
 import android.content.Intent;
 import android.graphics.PointF;
 import android.os.ResultReceiver;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import org.joda.time.DateTime;
