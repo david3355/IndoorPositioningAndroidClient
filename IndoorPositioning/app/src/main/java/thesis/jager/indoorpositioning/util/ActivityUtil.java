@@ -40,6 +40,18 @@ public class ActivityUtil
               });
        }
 
+       public static void shortPopup(final String text, final Activity context)
+       {
+              context.runOnUiThread(new Runnable()
+              {
+                     @Override
+                     public void run()
+                     {
+                            Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+                     }
+              });
+       }
+
        public static String getStringRes(Context context, int id)
        {
               return context.getResources().getString(id);

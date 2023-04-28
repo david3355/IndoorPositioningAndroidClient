@@ -67,7 +67,7 @@ public class RESTClient
                                    httpResponseEventCallback.onHttpResponse(info);
                             } catch (Exception e)
                             {
-                                   httpResponseEventCallback.onHttpResponse(new Information(InformationCodes.CONNECTION_FAILED));
+                                   httpResponseEventCallback.onHttpResponse(new Information(InformationCodes.CONNECTION_FAILED.getInfocode(), e.getMessage()));
                             }
                      }
               });
@@ -91,7 +91,7 @@ public class RESTClient
                                    httpResponseEventCallback.onHttpResponse(info);
                             } catch (Exception e)
                             {
-                                   httpResponseEventCallback.onHttpResponse(new Information(InformationCodes.CONNECTION_FAILED));
+                                   httpResponseEventCallback.onHttpResponse(new Information(InformationCodes.CONNECTION_FAILED.getInfocode(), e.getMessage()));
                             }
                      }
               });
@@ -115,7 +115,7 @@ public class RESTClient
                                    httpResponseEventCallback.onHttpResponse(info);
                             } catch (Exception e)
                             {
-                                   httpResponseEventCallback.onHttpResponse(new Information(InformationCodes.CONNECTION_FAILED));
+                                   httpResponseEventCallback.onHttpResponse(new Information(InformationCodes.CONNECTION_FAILED.getInfocode(), e.getMessage()));
                             }
                      }
               });

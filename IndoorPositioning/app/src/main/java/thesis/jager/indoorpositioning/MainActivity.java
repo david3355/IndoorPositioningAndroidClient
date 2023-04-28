@@ -106,12 +106,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        };
 
        @Override
-       protected void onActivityResult(int requestCode, int resultCode, Intent data)
-       {
-              if (requestCode == START_LOGIN)
-              {
-                     if (resultCode == RESULT_OK)
-                     {
+       protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+              super.onActivityResult(requestCode, resultCode, data);
+              if (requestCode == START_LOGIN) {
+                     if (resultCode == RESULT_OK) {
                             String username = data.getStringExtra(LoginActivity.KEY_USERNAME);
                             userLoggedIn(username);
                      }

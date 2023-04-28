@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.PointF;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.joda.time.DateTime;
 
@@ -20,6 +21,8 @@ import thesis.jager.indoorpositioning.positioning.locationcalc.util.LocationResu
 import thesis.jager.indoorpositioning.positioning.locationcalc.util.Precision;
 import thesis.jager.indoorpositioning.positioning.locationcalc.util.TagDistanceRepresentation;
 import thesis.jager.indoorpositioning.positioning.tagmanager.TagPositionManager;
+import thesis.jager.indoorpositioning.util.ActivityUtil;
+import thesis.jager.indoorpositioning.view.positioning.BluetoothTagDisplay;
 
 /**
  * Created by Jager on 2016.04.16..
@@ -59,14 +62,18 @@ public class Positioning
         */
        public LocationResult getNewPosition(DiscoveredBTDevice lastDiscoveredDevice)
        {
+              messageEventHandler.infoMessage("new device");
               TagDistanceRepresentation deviceFound = containsDevice(lastDiscoveredDevice.getMAC());
               if (deviceFound == null)
               {
                      addDevice(lastDiscoveredDevice);
+                     //Toast.makeText(context, String.format("new device: %s", lastDiscoveredDevice.getMAC()), Toast.LENGTH_SHORT).show();
                      Log.d("Positioning", String.format("New Device added to list: %s | RSSI: %s", lastDiscoveredDevice.getMAC(), lastDiscoveredDevice.getRssi()));
               } else
               {
                      refreshDevice(deviceFound, lastDiscoveredDevice.getRssi());
+                     messageEventHandler.infoMessage(String.format("rssi: %s", lastDiscoveredDevice.getRssi()));
+                     //Toast.makeText(context, String.format("rssi: %s", lastDiscoveredDevice.getRssi()), Toast.LENGTH_SHORT).show();
                      Log.d("Positioning", String.format("Device refreshed: %s | RSSI: %s", lastDiscoveredDevice.getMAC(), lastDiscoveredDevice.getRssi()));
               }
               return calculatePosition();
@@ -94,6 +101,7 @@ public class Positioning
               try
               {
                      PointF pos = getPositionForDevice(device.getMAC());
+                     messageEventHandler.infoMessage(String.format("Device: %s", device.getMAC()));
                      TagDistanceRepresentation tdr = new TagDistanceRepresentation(device.getMAC(), pos, distanceCalculator);
                      devices.add(tdr);
               }
@@ -111,7 +119,11 @@ public class Positioning
         */
        private PointF getPositionForDevice(String macAddress)
        {
-              return tagPositionManager.getTagPosition(macAddress);
+              if (macAddress.equals("E0:FF:F1:11:8F:41")) return new PointF(0, 255);
+              if (macAddress.equals("C4:BE:84:49:FA:B3")) return new PointF(270, 35);
+              if (macAddress.equals("C4:BE:84:49:F8:B9")) return new PointF(515, 255);
+              return new PointF(0,0);
+              //return tagPositionManager.getTagPosition(macAddress);
        }
 
        /**
@@ -133,9 +145,11 @@ public class Positioning
               try
               {
                      lastLocation = calc_strat.CalculateLocation(devices, lastLocation);
+                     Toast.makeText(context, String.format("pos: %s", lastLocation.simulatedLocation.toString()), Toast.LENGTH_SHORT).show();
               }
               catch(Exception e)
               {
+                     Toast.makeText(context, String.format("error: %s", e.getMessage()), Toast.LENGTH_SHORT).show();
               }
               return lastLocation;
        }

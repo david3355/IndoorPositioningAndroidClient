@@ -39,6 +39,16 @@ public class DrawManager
 
        private void setAllBluetoothTags()
        {
+              BluetoothTagDisplay btDisplay1 = new BluetoothTagDisplay(new PointF(0, 255), "E0:FF:F1:11:8F:41");
+              tagDisplays.add(btDisplay1);
+
+              BluetoothTagDisplay btDisplay2 = new BluetoothTagDisplay(new PointF(270, 35), "C4:BE:84:49:FA:B3");
+              tagDisplays.add(btDisplay2);
+
+              BluetoothTagDisplay btDisplay3 = new BluetoothTagDisplay(new PointF(515, 244), "C4:BE:84:49:F8:B9");
+              tagDisplays.add(btDisplay3);
+
+
               List<PositionDatabaseDef> positions = tagPositionManager.getAllTagPosition();
               for (PositionDatabaseDef pos : positions)
               {

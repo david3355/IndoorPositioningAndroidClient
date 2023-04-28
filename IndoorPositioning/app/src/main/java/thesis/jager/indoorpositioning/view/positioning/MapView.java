@@ -73,7 +73,7 @@ public class MapView extends View implements  DistanceChangeViewHandler
 
        private void loadMap(Canvas canvas)
        {
-              Drawable d = getResources().getDrawable(R.drawable.deik_lowres_portrait);
+              Drawable d = getResources().getDrawable(R.drawable.room);
               d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
               d.draw(canvas);
        }

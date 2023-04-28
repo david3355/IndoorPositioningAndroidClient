@@ -78,6 +78,7 @@ public class PositioningActivity extends AppCompatActivity implements ClientEven
                      @Override
                      protected void onReceiveResult(int resultCode, Bundle resultData)
                      {
+                            ActivityUtil.popup("Result from bluetooth", PositioningActivity.this);
                             switch (resultCode)
                             {
                                    case BluetoothDiscoveryService.LOCATION_RESULTCODE:
@@ -95,8 +96,9 @@ public class PositioningActivity extends AppCompatActivity implements ClientEven
        private void processReceivedLocation(Bundle dataFromSvc)
        {
               final InterComponentData data = InterComponentCommunicator.readBundle(dataFromSvc);
-              if (client != null && client.isLoggedIn())
-                     client.sendLocationData(new NewLocation(data.cx, data.cx, DateTime.now().getMillis(), client.getUsername()));
+              ActivityUtil.popup(String.format("received: %s, %s, %s", data.rssi, data.estimatedDistance, data.precision), this);
+              //if (client != null && client.isLoggedIn())
+              //       client.sendLocationData(new NewLocation(data.cx, data.cx, DateTime.now().getMillis(), client.getUsername()));
               UIOperationHandler todo = new UIOperationHandler()
               {
                      @Override
